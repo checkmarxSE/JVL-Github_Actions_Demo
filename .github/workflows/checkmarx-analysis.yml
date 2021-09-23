@@ -33,11 +33,11 @@ jobs:
       break_build: false
       scanners: sast,sca
       bug_tracker: GitHub
-      params: --sca.appUrl=https://sca.scacheckmarx.com --sca.apiUrl=https://api.scacheckmarx.com --sca.accessControlUrl=https://platform.checkmarx.net --sca.tenant=${{ secrets.SCA_TENANT }} --sca.username=${{ secrets.SCA_USERNAME }} --sca.password=${{ secrets.SCA_PASSWORD }}
+      params: --sca.appUrl=https://sca.scacheckmarx.com --sca.apiUrl=https://api.scacheckmarx.com --sca.accessControlUrl=https://platform.checkmarx.net --sca.tenant=${{ secrets.SCA_TENANT }} --sca.username=${{ secrets.SCA_USERNAME }} --sca.password=${{ secrets.SCA_PASSWORD }} --github.webhook-token:${{ secrets.GH_TOKEN }}
   # Upload the Report for CodeQL/Security Alerts
-  - name: Upload SARIF file
-    uses: github/codeql-action/upload-sarif@v1
-    with:
-      sarif_file: cx.sarif
+  #- name: Upload SARIF file
+  #  uses: github/codeql-action/upload-sarif@v1
+  #  with:
+  #    sarif_file: cx.sarif
 
    
